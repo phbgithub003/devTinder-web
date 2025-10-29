@@ -28,7 +28,7 @@ function Navbar() {
     <>
       <div className="navbar bg-base-300 shadow-sm">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">👨🏻‍💻 DevTinder</a>
+          <Link to={"/"} className="btn btn-ghost text-xl">👨🏻‍💻 DevTinder</Link>
         </div>
         <div className="flex gap-2">
           <div className="dropdown dropdown-end mx-5">
@@ -58,7 +58,10 @@ function Navbar() {
                 </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link to={"/connections"}>Connections</Link>
+              </li>
+              <li>
+                <Link to={"/requests"}>Connection Requests</Link>
               </li>
               <li>
                 <a onClick={()=>handleLogout()}>Logout</a>
