@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_BASE_URL } from "../utils/constants";
-import { use } from "react";
+
 import { useDispatch } from "react-redux";
 import { removeUser } from "../utils/userSlice";
 
