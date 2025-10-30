@@ -8,13 +8,10 @@ import Card from "./Card";
 function Feed() {
   const despatch = useDispatch();
   const feed = useSelector((store)=>store.feed);
-  if(feed){
-    console.log("Feed data:", feed.data[0]);
-  }
+  
 
   const fetchFeed = async() =>{
     try{
-      if (feed) return;
       let res = await axios.get(API_BASE_URL+"/feed",{
         withCredentials:true,
     })

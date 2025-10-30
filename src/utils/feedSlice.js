@@ -2,16 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const feedSlice = createSlice({
   name: "feed",
-  initialState: null,
+  initialState: { data: [] }, // consistent shape
   reducers: {
-    addFeed: (state, action) => {
-      return action.payload;
+    addFeed: (_, action) => {
+      // your API probably returns { data: [...] } — be defensive
+      return { data: action.payload.data ?? [] };
     },
-    removeFeed: ()=>{
-        return null;
-    }
+    removeUserFromFeed: (state, action) => {
+      return {
+        ...state,
+        data: state.data.filter((user) => user._id !== action.payload),
+      };
+    },
   },
 });
 
-export const { addFeed } = feedSlice.actions;
+export const { addFeed, removeUserFromFeed } = feedSlice.actions;
 export default feedSlice.reducer;
